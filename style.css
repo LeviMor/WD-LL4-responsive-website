@@ -1,0 +1,192 @@
+/* Basic mobile-first styles for the header */
+
+/* Use a soft turquoise background and easy-to-read fonts */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif; /* Clean, modern, easy to read */
+  background-color: #e0f7fa; /* Soft turquoise */
+  color: #222; /* Dark text for good contrast */
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the header background and padding */
+.site-header {
+  background-color: #4dd0e1; /* Slightly deeper turquoise for header */
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column; /* Stack items on mobile */
+  align-items: center;
+}
+
+/* Style the logo text */
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Style the navigation menu */
+.main-nav {
+  width: 100%;
+}
+
+.main-nav ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  display: none;
+  flex-direction: column; /* Stack links on mobile */
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1em;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.main-nav a:hover {
+  background: #0288d1; /* Slightly darker blue on hover */
+}
+
+/* Hamburger menu button for mobile */
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8em;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+/* Show menu when active (JS will add 'active' class) */
+.main-nav.active ul {
+  display: flex;
+}
+
+/* Always show menu on larger screens, hide hamburger */
+@media (min-width: 600px) {
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    margin-bottom: 0;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .main-nav ul {
+    display: flex !important;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    width: auto;
+  }
+}
+
+/* Hero section styles */
+.hero {
+  background-color: #b2ebf2; /* Soft turquoise for hero */
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.hero h1 {
+  font-size: 2.2em;
+  margin-bottom: 16px;
+  color: #00796b; /* Deep teal for contrast */
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: #333;
+  max-width: 500px;
+}
+
+/* Destination cards container */
+.destinations {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  justify-content: center;
+  margin: 32px auto;
+  max-width: 1000px;
+  padding: 0 16px;
+}
+
+/* Individual card styles */
+.destination-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 16px;
+  flex: 1 1 250px;
+  max-width: 100%;
+  width: 100%;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+.destination-card img {
+  width: 100%;
+  border-radius: 6px;
+  height: 160px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.destination-card h2 {
+  margin: 12px 0 8px;
+  font-size: 1.2em;
+  color: #00796b;
+}
+
+.destination-card p {
+  color: #444;
+  font-size: 1em;
+}
+
+/* Stack cards vertically in one column when viewport is 50vw or less */
+@media (max-width: 50vw) {
+  .destinations {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    flex-wrap: nowrap !important; /* Prevent wrapping in column mode */
+  }
+  .destination-card {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* Force a single row (no wrapping) above 50vw */
+@media (min-width: 50.01vw) {
+  .destinations {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    justify-content: center;
+  }
+  .destination-card {
+    max-width: 300px;
+    width: 100%;
+  }
+}
